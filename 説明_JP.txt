@@ -1,0 +1,75 @@
+
+
+# Primer Design Tool
+
+## 紹介
+
+**Primer Design Tool** はPCRプライマーを設計するための小さなツールです。ユーザーはDNA配列を入力し、プライマー設計パラメータを設定できます。このツールは指定された条件を満たすプライマーを自動的に生成し、テキストボックスに結果を表示します。生成されたプライマーは入力したDNA配列でもハイライト表示されます。
+
+このツールは **yangxinyue** と **lsy** によって開発され、Natureの [Self-driving laboratories to autonomously navigate the protein fitness landscape](https://www.nature.com/articles/s41586-019-1405-3) という記事に触発されました。このツールは完全な自動化実験設計にはまだ遠いですが、良い出発点です。
+
+## インストール
+
+システムにPython 3とpipがインストールされていることを確認してください。その後、以下の手順に従ってください：
+
+1. このプロジェクトをクローンまたはダウンロードします。
+2. プロジェクトのルートディレクトリに移動します。
+3. 仮想環境を作成してアクティブにします（オプションですが推奨）。
+
+```bash
+python -m venv venv
+source venv/bin/activate  # Windowsの場合は `venv\Scripts\activate` を使用
+```
+
+4. 必要な依存関係をインストールします。
+
+```bash
+pip install -r requirements.txt
+```
+
+5. PyInstallerを使用してスクリプトを実行可能ファイルとしてパッケージ化します。
+
+```bash
+pyinstaller --onefile --windowed --noconfirm maker.py
+```
+
+生成されたEXEファイルは `dist` ディレクトリに配置されます。
+
+## 使い方
+
+1. `maker.exe` を実行します。
+2. "Enter Sequence" テキストボックスにDNA配列を入力します。
+3. デフォルトのパラメータ値を入力または保持します：
+   - `PRIMER_MAX_POLY_X`: 連続する同一塩基の最大許容数（デフォルト：2）。
+   - `PRIMER_OPT_SIZE`: 最適なプライマー長（デフォルト：20）。
+4. "Submit" ボタンをクリックします。
+5. ツールは自動的にプライマーを設計し、結果ボックスに表示します。生成されたプライマーの内容をドラッグして選択すると、入力テンプレートの対応する内容も選択され、ハイライト表示されます。
+
+## パラメータ説明
+
+- `PRIMER_OPT_SIZE`: 最適なプライマー長。デフォルトは20。通常は18〜25塩基の範囲で、短すぎたり長すぎたりするとPCR効率に影響を与えます。
+- `PRIMER_PICK_INTERNAL_OLIGO`: 内部オリゴヌクレオチドを選択するかどうか。0は選択しないことを意味し、デフォルトは0。
+- `PRIMER_INTERNAL_OPT_SIZE`: 内部プライマーの最適長。デフォルトは20。
+- `PRIMER_INTERNAL_MIN_SIZE`: 内部プライマーの最小長。デフォルトは18。
+- `PRIMER_INTERNAL_MAX_SIZE`: 内部プライマーの最大長。デフォルトは25。
+- `PRIMER_INTERNAL_OPT_TM`: 内部プライマーの最適アニーリング温度。デフォルトは60.0°C。
+- `PRIMER_INTERNAL_MIN_TM`: 内部プライマーの最小アニーリング温度。デフォルトは57.0°C。
+- `PRIMER_INTERNAL_MAX_TM`: 内部プライマーの最大アニーリング温度。デフォルトは63.0°C。
+- `PRIMER_INTERNAL_MAX_SELF_END`: 内部プライマーの最大自己相補末端。デフォルトは8。
+- `PRIMER_MIN_SIZE`: プライマーの最小長。デフォルトは18。
+- `PRIMER_MAX_SIZE`: プライマーの最大長。デフォルトは25。
+- `PRIMER_OPT_TM`: プライマーの最適アニーリング温度。デフォルトは60.0°C。
+- `PRIMER_MIN_TM`: プライマーの最小アニーリング温度。デフォルトは57.0°C。
+- `PRIMER_MAX_TM`: プライマーの最大アニーリング温度。デフォルトは63.0°C。
+- `PRIMER_MAX_POLY_X`: 連続する同一塩基の最大許容数。デフォルトは2。長すぎると二次構造や非特異的結合を引き起こす可能性があります。
+- `PRIMER_SALT_MONOVALENT`: 一価の塩の濃度。デフォルトは50.0 mM。
+- `PRIMER_DNA_CONC`: DNA濃度。デフォルトは50.0 nM。
+- `PRIMER_PRODUCT_SIZE_RANGE`: 生成物サイズ範囲。デフォルトは[[100, 300]]。
+
+## 開発者
+
+このツールは **yangxinyue** と **lsy** によって開発され、Natureの [Self-driving laboratories to autonomously navigate the protein fitness landscape](https://www.nature.com/articles/s41586-019-1405-3) という記事に触発されました。このツールは完全な自動化実験設計にはまだ遠いですが、良い出発点です。
+
+## ライセンス
+
+このプロジェクトはMITライセンスの下でライセンスされています。詳細については、LICENSEファイルを参照してください。

@@ -1,0 +1,75 @@
+
+
+# Primer Design Tool
+
+## 介绍
+
+**Primer Design Tool** 是一个用于设计 PCR 引物的小工具。用户可以输入 DNA 序列并设置引物设计参数。该工具将自动生成满足指定条件的引物，并在文本框中显示结果。生成的引物还会高亮显示在输入的 DNA 序列中。
+
+该工具由 **yangxinyue** 和 **lsy** 开发，灵感来自于 Nature 上的文章 [Self-driving laboratories to autonomously navigate the protein fitness landscape](https://www.nature.com/articles/s41586-019-1405-3)。虽然该工具距离完全自动化实验设计还有很长的路要走，但它是一个良好的起点。
+
+## 安装
+
+确保你的系统已安装 Python 3 和 pip。然后按以下步骤操作：
+
+1. 克隆或下载本项目代码。
+2. 进入项目根目录。
+3. 创建并激活虚拟环境（可选但推荐）。
+
+```bash
+python -m venv venv
+source venv/bin/activate  # 在 Windows 上使用 `venv\Scripts\activate`
+```
+
+4. 安装所需依赖项。
+
+```bash
+pip install -r requirements.txt
+```
+
+5. 使用 PyInstaller 打包为可执行文件。
+
+```bash
+pyinstaller --onefile --windowed --noconfirm maker.py
+```
+
+生成的 EXE 文件将在 `dist` 目录中。
+
+## 用法
+
+1. 运行 `maker.exe`。
+2. 在 "Enter Sequence" 文本框中输入你的 DNA 序列。
+3. 输入或保持默认的参数值：
+   - `PRIMER_MAX_POLY_X`: 允许的最大连续同一碱基数量（默认值：2）。
+   - `PRIMER_OPT_SIZE`: 引物的最优长度（默认值：20）。
+4. 点击 "Submit" 按钮。
+5. 工具将自动设计引物，并在结果框中显示设计好的引物。当你用鼠标拖动选择生成的引物内容时，输入的模板中的对应内容也会被选中并高亮显示。
+
+## 参数说明
+
+- `PRIMER_OPT_SIZE`: 引物的最优长度，默认值为 20。通常在 18 到 25 个碱基之间，太短或太长都会影响 PCR 效率。
+- `PRIMER_PICK_INTERNAL_OLIGO`: 是否选择内部寡核苷酸，0 表示不选择，默认值为 0。
+- `PRIMER_INTERNAL_OPT_SIZE`: 内部引物的最优长度，默认值为 20。
+- `PRIMER_INTERNAL_MIN_SIZE`: 内部引物的最小长度，默认值为 18。
+- `PRIMER_INTERNAL_MAX_SIZE`: 内部引物的最大长度，默认值为 25。
+- `PRIMER_INTERNAL_OPT_TM`: 内部引物的最优退火温度，默认值为 60.0 摄氏度。
+- `PRIMER_INTERNAL_MIN_TM`: 内部引物的最小退火温度，默认值为 57.0 摄氏度。
+- `PRIMER_INTERNAL_MAX_TM`: 内部引物的最大退火温度，默认值为 63.0 摄氏度。
+- `PRIMER_INTERNAL_MAX_SELF_END`: 内部引物的最大自身配对末端，默认值为 8。
+- `PRIMER_MIN_SIZE`: 引物的最小长度，默认值为 18。
+- `PRIMER_MAX_SIZE`: 引物的最大长度，默认值为 25。
+- `PRIMER_OPT_TM`: 引物的最优退火温度，默认值为 60.0 摄氏度。
+- `PRIMER_MIN_TM`: 引物的最小退火温度，默认值为 57.0 摄氏度。
+- `PRIMER_MAX_TM`: 引物的最大退火温度，默认值为 63.0 摄氏度。
+- `PRIMER_MAX_POLY_X`: 允许的最大连续同一碱基数量，默认值为 2。过长的连续同一碱基可能会导致引物二级结构和非特异性结合。
+- `PRIMER_SALT_MONOVALENT`: 单价盐浓度，默认值为 50.0 mM。
+- `PRIMER_DNA_CONC`: DNA 浓度，默认值为 50.0 nM。
+- `PRIMER_PRODUCT_SIZE_RANGE`: 产物大小范围，默认值为 [[100, 300]]。
+
+## 开发者
+
+该工具由 **yangxinyue** 和 **lsy** 开发。灵感来自于 Nature 上的文章 [Self-driving laboratories to autonomously navigate the protein fitness landscape](https://www.nature.com/articles/s41586-019-1405-3)。虽然该工具距离完全自动化实验设计还有很长的路要走，但它是一个良好的起点。
+
+## 许可证
+
+该项目基于 MIT 许可证，详情请参阅 LICENSE 文件。
