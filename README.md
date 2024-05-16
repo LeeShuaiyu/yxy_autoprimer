@@ -4,7 +4,7 @@
 
 **Primer Design Tool** is a small tool for designing PCR primers. Users can input a DNA sequence and set primer design parameters. The tool will automatically generate primers that meet the specified conditions and display the results in a text box. The generated primers will also be highlighted in the input DNA sequence.
 
-This tool was developed by **yangxinyue** and **lsy**, inspired by the Nature article [Self-driving laboratories to autonomously navigate the protein fitness landscape](https://www.nature.com/articles/s44286-023-00002-4). While this tool is far from achieving fully automated experimental design, it is a good starting point.
+
 
 ## Installation
 
@@ -81,4 +81,4 @@ This project is licensed under the MIT License. For more details, please refer t
 
 ## Note
 
-This application is based on the `primer3-py` library. It aims to simplify the process and assist the Crop Science Laboratory of Kyushu University's Faculty of Agriculture in accelerating the automation of primer design.
+This application is based on the `primer3-py` library. It aims to simplify the process and assist the  [Crop Science Laboratory of Kyushu University's Faculty of Agriculture]([https://www.nature.com/articles/s44286-023-00002-4](https://kyudai-crop.com/)) in accelerating the automation of primer design.
