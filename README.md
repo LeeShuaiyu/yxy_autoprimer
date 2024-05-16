@@ -1,42 +1,48 @@
-
-# Primer Design Tool
+### Primer Design Tool
 
 ## Introduction
 
 **Primer Design Tool** is a small tool for designing PCR primers. Users can input a DNA sequence and set primer design parameters. The tool will automatically generate primers that meet the specified conditions and display the results in a text box. The generated primers will also be highlighted in the input DNA sequence.
 
-This tool was developed by **yangxinyue** and **lsy**, inspired by the Nature article [Self-driving laboratories to autonomously navigate the protein fitness landscape](https://www.nature.com/articles/s41586-019-1405-3). While this tool is far from achieving fully automated experimental design, it is a good starting point.
+This tool was developed by **yangxinyue** and **lsy**, inspired by the Nature article [Self-driving laboratories to autonomously navigate the protein fitness landscape](https://www.nature.com/articles/s44286-023-00002-4). While this tool is far from achieving fully automated experimental design, it is a good starting point.
 
 ## Installation
 
 Make sure your system has Python 3 and pip installed. Then follow these steps:
 
-1. Clone or download this project.
-2. Navigate to the project root directory.
-3. Create and activate a virtual environment (optional but recommended).
+1. **Clone or download this project**:
+   - Go to the project's GitHub page, click the "Code" button, and select "Download ZIP" to download, or clone the project using git:
+     ```bash
+     git clone https://github.com/yourusername/yxy_autoprimer.git
+     ```
 
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-```
+2. **Navigate to the project root directory**:
+   - For macOS users:
+     Open the Terminal application. You can open it in one of the following ways:
+     - Use Spotlight Search: Press `Command` + `Space`, type "Terminal", and press Enter.
+     - Open from the Applications folder: Go to "Applications" > "Utilities", then double-click "Terminal".
+     In the terminal, use the `cd` command to navigate to the project directory, for example:
+     ```bash
+     cd /path/to/yxy_autoprimer
+     ```
+   - For Windows users:
+     Open Command Prompt. You can open it in one of the following ways:
+     - Use the search bar: Click the search icon on the taskbar, type "cmd" or "Command Prompt", and press Enter.
+     - Open from the Start menu: Click the "Start" button, select "Windows System", then click "Command Prompt".
+     In the Command Prompt, use the `cd` command to navigate to the project directory, for example:
+     ```cmd
+     cd C:\path\to\yxy_autoprimer
+     ```
 
-4. Install the required dependencies.
+3. **Run the script**:
+   In the command line, run the following command:
+   ```bash
+   python maker.py
+   ```
 
-```bash
-pip install -r requirements.txt
-```
+## Usage Instructions
 
-5. Use PyInstaller to package the script as an executable file.
-
-```bash
-pyinstaller --onefile --windowed --noconfirm maker.py
-```
-
-The generated EXE file will be located in the `dist` directory.
-
-## Usage
-
-1. Run `maker.exe`.
+1. Run `python maker.py` to start the application.
 2. Enter your DNA sequence in the "Enter Sequence" text box.
 3. Enter or keep the default parameter values:
    - `PRIMER_MAX_POLY_X`: Maximum allowable consecutive identical bases (default: 2).
@@ -67,8 +73,12 @@ The generated EXE file will be located in the `dist` directory.
 
 ## Developers
 
-This tool was developed by **yangxinyue** and **lsy**, inspired by the Nature article [Self-driving laboratories to autonomously navigate the protein fitness landscape](https://www.nature.com/articles/s41586-019-1405-3). While this tool is far from achieving fully automated experimental design, it is a good starting point.
+This tool was developed by **yangxinyue** and **lsy**, inspired by the Nature article [Self-driving laboratories to autonomously navigate the protein fitness landscape](https://www.nature.com/articles/s44286-023-00002-4). While this tool is far from achieving fully automated experimental design, it is a good starting point.
 
 ## License
 
 This project is licensed under the MIT License. For more details, please refer to the LICENSE file.
+
+## Note
+
+This application is based on the `primer3-py` library. It aims to simplify the process and assist the Crop Science Laboratory of Kyushu University's Faculty of Agriculture in accelerating the automation of primer design.
