@@ -5,7 +5,6 @@
 **Primer Design Tool** is a small tool for designing PCR primers. Users can input a DNA sequence and set primer design parameters. The tool will automatically generate primers that meet the specified conditions and display the results in a text box. The generated primers will also be highlighted in the input DNA sequence.
 
 
-
 ## Installation
 
 Make sure your system has Python 3 and pip installed. Then follow these steps:
@@ -34,7 +33,13 @@ Make sure your system has Python 3 and pip installed. Then follow these steps:
      cd C:\path\to\yxy_autoprimer
      ```
 
-3. **Run the script**:
+3. **Install the required dependencies**:
+   In the command line, run the following command:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the script**:
    In the command line, run the following command:
    ```bash
    python maker.py
@@ -81,4 +86,8 @@ This project is licensed under the MIT License. For more details, please refer t
 
 ## Note
 
-This application is based on the `primer3-py` library. It aims to simplify the process and assist the  [Crop Science Laboratory of Kyushu University's Faculty of Agriculture]([https://www.nature.com/articles/s44286-023-00002-4](https://kyudai-crop.com/)) in accelerating the automation of primer design.
+This application is based on the `primer3-py` library. It aims to simplify the process and assist the Crop Science Laboratory of Kyushu University's Faculty of Agriculture in accelerating the automation of primer design.
+
+---
+
+Save the above content as `README.md` and ensure it is located in the root directory of your project. This will provide users with clear instructions on how to use the tool, even if they are not familiar with command-line operations.
