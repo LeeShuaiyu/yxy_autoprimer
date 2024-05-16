@@ -88,6 +88,4 @@ This project is licensed under the MIT License. For more details, please refer t
 
 This application is based on the `primer3-py` library. It aims to simplify the process and assist the Crop Science Laboratory of Kyushu University's Faculty of Agriculture in accelerating the automation of primer design.
 
----
 
-Save the above content as `README.md` and ensure it is located in the root directory of your project. This will provide users with clear instructions on how to use the tool, even if they are not familiar with command-line operations.
